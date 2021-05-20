@@ -16,3 +16,5 @@ package com.nguyenhoanglam.imagepicker.ui.common;
     protected boolean isViewAttached() {
         return view != null;
     }
+
+}
