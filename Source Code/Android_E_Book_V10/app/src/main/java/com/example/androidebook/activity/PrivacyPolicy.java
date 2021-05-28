@@ -9,3 +9,5 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+public class PrivacyPolicy extends AppCompatActivity {
+}
