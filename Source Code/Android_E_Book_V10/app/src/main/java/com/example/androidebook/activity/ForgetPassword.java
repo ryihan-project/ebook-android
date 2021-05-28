@@ -4,3 +4,5 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+public class ForgetPassword extends AppCompatActivity {
+}
