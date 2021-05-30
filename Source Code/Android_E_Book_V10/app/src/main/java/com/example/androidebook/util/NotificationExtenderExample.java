@@ -14,6 +14,23 @@ public class NotificationExtenderExample extends NotificationExtenderService {
     private String NOTIFICATION_CHANNEL_ID = "android_e_book";
     private String message, bigpicture, title, id, subId, type, titleName, url;
 
+        Random random_code = new Random();
+        int code = random_code.nextInt(9999 - 1000) + 1000;
+
+        PendingIntent contentIntent = PendingIntent.getActivity(this, code, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+                .setAutoCancel(true)
+                .setSound(uri)
+                .setAutoCancel(true)
+                .setChannelId(NOTIFICATION_CHANNEL_ID)
+                .setLights(Color.RED, 800, 800);
+
+        mBuilder.setSmallIcon(getNotificationIcon(mBuilder));
+
+        mBuilder.setContentTitle(title);
+        mBuilder.setTicker(message);
+
         if (bigpicture != null) {
             mBuilder.setStyle(new NotificationCompat.BigPictureStyle().bigPicture(getBitmapFromURL(bigpicture)).setSummaryText(message));
         } else {
