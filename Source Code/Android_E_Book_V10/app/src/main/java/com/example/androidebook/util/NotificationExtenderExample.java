@@ -8,6 +8,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
+
+import androidx.core.app.NotificationCompat;
+
+import com.example.androidebook.R;
+import com.example.androidebook.activity.SplashScreen;
+import com.onesignal.NotificationExtenderService;
+import com.onesignal.OSNotificationReceivedResult;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Random;
+
 public class NotificationExtenderExample extends NotificationExtenderService {
 
     private NotificationManager mNotificationManager;
