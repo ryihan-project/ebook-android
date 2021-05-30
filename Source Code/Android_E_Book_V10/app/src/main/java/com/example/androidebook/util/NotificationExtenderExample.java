@@ -14,6 +14,20 @@ public class NotificationExtenderExample extends NotificationExtenderService {
     private String NOTIFICATION_CHANNEL_ID = "android_e_book";
     private String message, bigpicture, title, id, subId, type, titleName, url;
 
+    private int getNotificationIcon(NotificationCompat.Builder notificationBuilder) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            notificationBuilder.setColor(getColour());
+            return R.drawable.ic_stat_onesignal_default;
+        } else {
+            return R.mipmap.ic_launcher;
+        }
+    }
+
+    private int getColour() {
+        return getResources().getColor(R.color.notification_color);
+    }
+
     public static Bitmap getBitmapFromURL(String src) {
         try {
             URL url = new URL(src);
