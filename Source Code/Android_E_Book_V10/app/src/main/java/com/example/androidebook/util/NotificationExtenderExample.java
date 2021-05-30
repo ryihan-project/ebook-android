@@ -14,6 +14,27 @@ public class NotificationExtenderExample extends NotificationExtenderService {
     private String NOTIFICATION_CHANNEL_ID = "android_e_book";
     private String message, bigpicture, title, id, subId, type, titleName, url;
 
+    @Override
+    protected boolean onNotificationProcessing(OSNotificationReceivedResult receivedResult) {
+
+        title = receivedResult.payload.title;
+        message = receivedResult.payload.body;
+        bigpicture = receivedResult.payload.bigPicture;
+
+        try {
+            id = receivedResult.payload.additionalData.getString("id");
+            subId = receivedResult.payload.additionalData.getString("sub_id");
+            type = receivedResult.payload.additionalData.getString("type");
+            titleName = receivedResult.payload.additionalData.getString("title");
+            url = receivedResult.payload.additionalData.getString("external_link");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        sendNotification();
+        return true;
+    }
+
     @SuppressLint("WrongConstant")
     private void sendNotification() {
         mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
