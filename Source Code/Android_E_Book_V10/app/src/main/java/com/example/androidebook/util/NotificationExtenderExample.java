@@ -14,6 +14,30 @@ public class NotificationExtenderExample extends NotificationExtenderService {
     private String NOTIFICATION_CHANNEL_ID = "android_e_book";
     private String message, bigpicture, title, id, subId, type, titleName, url;
 
+    @SuppressLint("WrongConstant")
+    private void sendNotification() {
+        mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Intent intent;
+        if (id.equals("0") && !url.equals("false") && !url.trim().isEmpty()) {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+        } else {
+            intent = new Intent(this, SplashScreen.class);
+            intent.putExtra("id", id);
+            intent.putExtra("subId", subId);
+            intent.putExtra("type", type);
+            intent.putExtra("title", titleName);
+        }
+
+        NotificationChannel mChannel;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getResources().getString(R.string.app_name);// The user-visible name of the channel.
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            mChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance);
+            mNotificationManager.createNotificationChannel(mChannel);
+        }
+
         Random random_code = new Random();
         int code = random_code.nextInt(9999 - 1000) + 1000;
 
