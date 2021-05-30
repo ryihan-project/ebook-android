@@ -14,4 +14,5 @@ public class NotificationExtenderExample extends NotificationExtenderService {
     private String NOTIFICATION_CHANNEL_ID = "android_e_book";
     private String message, bigpicture, title, id, subId, type, titleName, url;
 
+    }
 }
