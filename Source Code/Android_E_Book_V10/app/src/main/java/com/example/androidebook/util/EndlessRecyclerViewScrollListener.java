@@ -23,6 +23,19 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
         this.mLinearLayoutManager = layoutManager;
     }
 
+    public void onScrolled(RecyclerView view, int dx, int dy) {
+        int lastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
+        int totalItemCount = mLinearLayoutManager.getItemCount();
+
+        // If the total item count is zero and the previous isn't, assume the
+        // list is invalidated and should be reset back to initial state
+        if (totalItemCount < previousTotalItemCount) {
+            this.currentPage = this.startingPageIndex;
+            this.previousTotalItemCount = totalItemCount;
+            if (totalItemCount == 0) {
+                this.loading = true;
+            }
+        }
 
         // If it isn’t currently loading, we check to see if we have breached
         // the visibleThreshold and need to reload more data.
