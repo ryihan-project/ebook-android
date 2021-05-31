@@ -7,6 +7,11 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
 
     // The minimum amount of items to have below your current scroll position
     // before loading more.
+    private int visibleThreshold = 1;
+    // The current offset index of data you have loaded
+    private int currentPage = 0;
+    // The total number of items in the dataset after the last load
+    private int previousTotalItemCount = 0;
 
         // If it isn’t currently loading, we check to see if we have breached
         // the visibleThreshold and need to reload more data.
