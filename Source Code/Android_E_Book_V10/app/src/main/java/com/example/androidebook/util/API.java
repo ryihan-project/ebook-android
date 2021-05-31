@@ -4,3 +4,7 @@ import android.app.Activity;
 import android.util.Base64;
 
 import com.google.gson.annotations.SerializedName;
+public class API {
+    }
+
+}
