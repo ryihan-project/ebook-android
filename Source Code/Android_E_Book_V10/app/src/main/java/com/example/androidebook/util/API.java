@@ -10,6 +10,14 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 public class API {
+
+    @SerializedName("sign")
+    private String sign;
+    @SerializedName("salt")
+    private String salt;
+    @SerializedName("package_name")
+    private String package_name;
+
     private int getRandomSalt() {
         Random random = new Random();
         return random.nextInt(900);
