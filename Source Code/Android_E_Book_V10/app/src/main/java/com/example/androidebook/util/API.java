@@ -4,6 +4,11 @@ import android.app.Activity;
 import android.util.Base64;
 
 import com.google.gson.annotations.SerializedName;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Random;
+
 public class API {
     private int getRandomSalt() {
         Random random = new Random();
