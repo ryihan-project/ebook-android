@@ -12,6 +12,13 @@ public abstract class EndlessRecyclerViewScrollListener extends RecyclerView.OnS
     private int currentPage = 0;
     // The total number of items in the dataset after the last load
     private int previousTotalItemCount = 0;
+    // True if we are still waiting for the last set of data to load.
+    private boolean loading = true;
+    // Sets the starting page index
+    private int startingPageIndex = 1;
+
+    private LinearLayoutManager mLinearLayoutManager;
+
 
         // If it isn’t currently loading, we check to see if we have breached
         // the visibleThreshold and need to reload more data.
