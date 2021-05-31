@@ -18,6 +18,13 @@ public class API {
     @SerializedName("package_name")
     private String package_name;
 
+    public API(Activity activity) {
+        String apiKey = "viaviweb";
+        salt = "" + getRandomSalt();
+        sign = md5(apiKey + salt);
+        package_name = activity.getApplication().getPackageName();
+    }
+
     private int getRandomSalt() {
         Random random = new Random();
         return random.nextInt(900);
