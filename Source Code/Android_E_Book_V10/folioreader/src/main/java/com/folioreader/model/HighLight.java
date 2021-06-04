@@ -34,3 +34,18 @@ public interface HighLight {
      * Returns Highlighted text content text content.
      */
     String getContent();
+
+    /**
+     * Returns Date time when highlight is created (format:- MMM dd, yyyy | HH:mm).
+     */
+    Date getDate();
+
+    /**
+     * Returns Field defines the color of the highlight.
+     */
+    String getType();
+
+    /**
+     * Returns Page index in the book taken from Epub spine reference.
+     */
+    int getPageNumber();
