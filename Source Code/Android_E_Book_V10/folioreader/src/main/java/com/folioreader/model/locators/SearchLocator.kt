@@ -36,3 +36,13 @@ class SearchLocator : Locator, Parcelable {
         ), parcel.readString()!!, SearchItemType.valueOf(parcel.readString()!!)
     )
 
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(href)
+        parcel.writeLong(created)
+        parcel.writeString(title)
+        parcel.writeSerializable(locations)
+        parcel.writeSerializable(text)
+        parcel.writeString(primaryContents)
+        parcel.writeString(searchItemType.name)
+    }
+
