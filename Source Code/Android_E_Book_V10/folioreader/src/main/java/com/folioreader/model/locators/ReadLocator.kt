@@ -12,3 +12,15 @@ import org.readium.r2.shared.Locations
 import org.readium.r2.shared.Locator
 import org.readium.r2.shared.LocatorText
 
+@JsonPropertyOrder("bookId", "href", "created", "locations")
+@JsonIgnoreProperties(ignoreUnknown = true)
+open class ReadLocator : Locator, Parcelable {
+
+    var bookId: String
+
+    @Suppress("unused") // Required for fromJSON()
+    constructor() : this("", "", 0, Locations())
+
+    constructor(bookId: String, href: String, created: Long, locations: Locations) :
+            this(bookId, href, created, "", locations, null)
+
