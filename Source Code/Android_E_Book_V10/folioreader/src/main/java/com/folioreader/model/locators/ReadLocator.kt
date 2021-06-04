@@ -79,3 +79,19 @@ open class ReadLocator : Locator, Parcelable {
         }
     }
 
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    fun toJson(): String? {
+
+        return try {
+            val objectMapper = ObjectMapper()
+            objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)
+            objectMapper.writeValueAsString(this)
+        } catch (e: Exception) {
+            Log.e(LOG_TAG, "-> ", e)
+            null
+        }
+    }
+}
