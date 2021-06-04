@@ -49,3 +49,16 @@ public interface HighLight {
      * Returns Page index in the book taken from Epub spine reference.
      */
     int getPageNumber();
+
+    /**
+     * Returns href of the page from the Epub spine list.
+     */
+    String getPageId();
+
+    /**
+     * <p> Contains highlight meta data in terms of rangy format.</p>
+     * <strong>format </strong>:- start$end$id$class$containerId.
+     * <p>for reference, look here: <a href="https://github.com/timdown/rangy">rangy</a>.</p>
+     */
+    String getRangy();
+
