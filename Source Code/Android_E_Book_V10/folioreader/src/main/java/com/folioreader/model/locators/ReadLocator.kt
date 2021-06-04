@@ -50,3 +50,19 @@ open class ReadLocator : Locator, Parcelable {
     }
 
     companion object {
+
+        @JvmField
+        val LOG_TAG: String = ReadLocator::class.java.simpleName
+
+        @JvmStatic
+        fun fromJson(json: String?): ReadLocator? {
+            return try {
+                ObjectMapperSingleton.getObjectMapper()
+                    .reader()
+                    .forType(ReadLocator::class.java)
+                    .readValue(json)
+            } catch (e: Exception) {
+                Log.e(LOG_TAG, "-> ", e)
+                null
+            }
+        }
