@@ -14,3 +14,16 @@ enum class SearchItemType {
 }
 
 class SearchLocator : Locator, Parcelable {
+
+    var primaryContents: String
+    var searchItemType: SearchItemType
+
+    constructor() : this(Locator("", 0, "", Locations(), null), "", SearchItemType.UNKNOWN_ITEM)
+
+    constructor(locator: Locator, primaryContents: String, searchItemType: SearchItemType) :
+            super(locator.href, locator.created, locator.title, locator.locations, locator.text) {
+        this.primaryContents = primaryContents
+        this.searchItemType = searchItemType
+    }
+
+    constructor(parcel: Parcel) : this(
