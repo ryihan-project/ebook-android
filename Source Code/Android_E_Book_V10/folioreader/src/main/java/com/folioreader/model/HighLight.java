@@ -62,3 +62,13 @@ public interface HighLight {
      */
     String getRangy();
 
+    /**
+     * returns Unique identifier.
+     */
+    String getUUID();
+
+    /**
+     * Returns Note linked to the highlight (optional)
+     */
+    String getNote();
+}
