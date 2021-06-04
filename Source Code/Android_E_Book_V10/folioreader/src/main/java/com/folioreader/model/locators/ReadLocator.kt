@@ -24,3 +24,16 @@ open class ReadLocator : Locator, Parcelable {
     constructor(bookId: String, href: String, created: Long, locations: Locations) :
             this(bookId, href, created, "", locations, null)
 
+    constructor(
+        bookId: String, href: String, created: Long, title: String, locations: Locations,
+        text: LocatorText?
+    ) : super(href, created, title, locations, text) {
+        this.bookId = bookId
+    }
+
+    constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
+        parcel.readString()!!,
+        parcel.readLong(),
+        parcel.readString()!!,
+        parcel.readSerializable() as Locations,
