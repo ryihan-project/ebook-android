@@ -1,0 +1,14 @@
+package com.folioreader.model.locators
+
+import android.os.Parcel
+import android.os.Parcelable
+import android.util.Log
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import com.fasterxml.jackson.annotation.JsonInclude
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.folioreader.util.ObjectMapperSingleton
+import org.readium.r2.shared.Locations
+import org.readium.r2.shared.Locator
+import org.readium.r2.shared.LocatorText
+
