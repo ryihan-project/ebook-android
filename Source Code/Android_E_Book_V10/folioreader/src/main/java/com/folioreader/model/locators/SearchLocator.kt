@@ -46,3 +46,21 @@ class SearchLocator : Locator, Parcelable {
         parcel.writeString(searchItemType.name)
     }
 
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object {
+
+        @JvmField
+        val CREATOR = object : Parcelable.Creator<SearchLocator> {
+            override fun createFromParcel(parcel: Parcel): SearchLocator {
+                return SearchLocator(parcel)
+            }
+
+            override fun newArray(size: Int): Array<SearchLocator?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
+}
