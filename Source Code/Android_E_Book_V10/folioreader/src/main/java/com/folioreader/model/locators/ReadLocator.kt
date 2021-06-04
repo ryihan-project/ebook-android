@@ -66,3 +66,16 @@ open class ReadLocator : Locator, Parcelable {
                 null
             }
         }
+
+        @JvmField
+        val CREATOR = object : Parcelable.Creator<ReadLocator> {
+            override fun createFromParcel(parcel: Parcel): ReadLocator {
+                return ReadLocator(parcel)
+            }
+
+            override fun newArray(size: Int): Array<ReadLocator?> {
+                return arrayOfNulls(size)
+            }
+        }
+    }
+
