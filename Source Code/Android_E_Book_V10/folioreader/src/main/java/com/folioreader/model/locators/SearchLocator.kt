@@ -27,3 +27,12 @@ class SearchLocator : Locator, Parcelable {
     }
 
     constructor(parcel: Parcel) : this(
+        Locator(
+            parcel.readString()!!,
+            parcel.readLong(),
+            parcel.readString()!!,
+            parcel.readSerializable() as Locations,
+            parcel.readSerializable() as LocatorText?
+        ), parcel.readString()!!, SearchItemType.valueOf(parcel.readString()!!)
+    )
+
